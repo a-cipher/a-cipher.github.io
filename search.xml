@@ -39,19 +39,19 @@
 </li>
 <li><p>单链表？</p>
 <p><strong>单链表</strong> 单向链表只有一个方向，结点只有一个后继指针 next 指向后面的节点。因此，链表这种数据结构通常在物理内存上是不连续的。我们习惯性地把第一个结点叫作头结点，链表通常有一个不保存任何值的 head 节点(头结点)，通过头结点我们可以遍历整个链表。尾结点通常指向 null。</p>
-<p><img src="https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/%E5%8D%95%E9%93%BE%E8%A1%A82.png" alt="单链表"></p>
+<p><img src="/article/37b7424c/%E5%8D%95%E9%93%BE%E8%A1%A82.png" alt="单链表"></p>
 </li>
 <li><p>循环链表？</p>
 <p><strong>循环链表</strong> 其实是一种特殊的单链表，和单链表不同的是循环链表的尾结点不是指向 null，而是指向链表的头结点。</p>
-<p><img src="https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/%E5%BE%AA%E7%8E%AF%E9%93%BE%E8%A1%A82.png" alt="循环链表"></p>
+<p><img src="/article/37b7424c/%E5%BE%AA%E7%8E%AF%E9%93%BE%E8%A1%A82.png" alt="循环链表"></p>
 </li>
 <li><p>双向链表？</p>
 <p><strong>双向链表</strong> 包含两个指针，一个 prev 指向前一个节点，一个 next 指向后一个节点。</p>
-<p><img src="https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8.png" alt="双向链表"></p>
+<p><img src="/article/37b7424c/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8.png" alt="双向链表"></p>
 </li>
 <li><p>双向循环链表？</p>
 <p><strong>双向循环链表</strong> 最后一个节点的 next 指向 head，而 head 的 prev 指向最后一个节点，构成一个环。</p>
-<p><img src="https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/%E5%8F%8C%E5%90%91%E5%BE%AA%E7%8E%AF%E9%93%BE%E8%A1%A8.png" alt="双向循环链表"></p>
+<p><img src="/article/37b7424c/%E5%8F%8C%E5%90%91%E5%BE%AA%E7%8E%AF%E9%93%BE%E8%A1%A8.png" alt="双向循环链表"></p>
 </li>
 <li><p>数组 vs 链表</p>
 <ul>
@@ -76,7 +76,7 @@
 <p>栈常用一维数组或链表来实现，用数组实现的栈叫作 <strong>顺序栈</strong> ，用链表实现的栈叫作 <strong>链式栈</strong> 。</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">假设堆栈中有n个元素。</span><br><span class="line">访问：O（n）<span class="comment">//最坏情况</span></span><br><span class="line">插入删除：O（<span class="number">1</span>）<span class="comment">//顶端插入和删除元素Copy to clipboardErrorCopied</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/%E6%A0%88.png" alt="栈"></p>
+<p><img src="/article/37b7424c/%E6%A0%88.png" alt="栈"></p>
 </li>
 <li><p>Java中栈的基本方法？</p>
 <p>栈<code>Stack</code>的实现在java.util这个下面，继承于vector</p>
@@ -104,7 +104,7 @@
 <ol>
 <li><p>实现浏览器的回退，前进功能</p>
 <p>我们只需要使用两个栈(Stack1 和 Stack2)和就能实现这个功能。比如你按顺序查看了 1,2,3,4 这四个页面，我们依次把 1,2,3,4 这四个页面压入 Stack1 中。当你想回头看 2 这个页面的时候，你点击回退按钮，我们依次把 4,3 这两个页面从 Stack1 弹出，然后压入 Stack2 中。假如你又想回到页面 3，你点击前进按钮，我们将 3 页面从 Stack2 弹出，然后压入到 Stack1 中。示例图如下:</p>
-<p><img src="https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/%E6%A0%88%E5%AE%9E%E7%8E%B0%E6%B5%8F%E8%A7%88%E5%99%A8%E5%80%92%E9%80%80%E5%92%8C%E5%89%8D%E8%BF%9B.png" alt="栈实现浏览器倒退和前进"></p>
+<p><img src="/article/37b7424c/%E6%A0%88%E5%AE%9E%E7%8E%B0%E6%B5%8F%E8%A7%88%E5%99%A8%E5%80%92%E9%80%80%E5%92%8C%E5%89%8D%E8%BF%9B.png" alt="栈实现浏览器倒退和前进"></p>
 </li>
 <li><p>检查符号是否成对出现</p>
 <blockquote>
@@ -137,7 +137,7 @@
 <p>队列的操作方式和堆栈类似，唯一的区别在于队列只允许新数据在后端进行添加。</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">假设队列中有n个元素。</span><br><span class="line">访问：O（n）<span class="comment">//最坏情况</span></span><br><span class="line">插入删除：O（<span class="number">1</span>）<span class="comment">//后端插入前端删除元素Copy to clipboardErrorCopied</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/%E9%98%9F%E5%88%97.png" alt="队列"></p>
+<p><img src="/article/37b7424c/%E9%98%9F%E5%88%97.png" alt="队列"></p>
 </li>
 <li><p>队列分类</p>
 <p>主要分为单队列，循环队列</p>
@@ -149,18 +149,18 @@
 <blockquote>
 <p>为了避免当只有一个元素的时候，队头和队尾重合使处理变得麻烦，所以引入两个指针，<strong>front 指针指向对头元素</strong>，<strong>rear 指针指向队列最后一个元素的下一个位置</strong>，这样当 front 等于 rear 时，此队列不是还剩一个元素，而是空队列。——From 《大话数据结构》</p>
 </blockquote>
-<p><img src="https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/%E9%A1%BA%E5%BA%8F%E9%98%9F%E5%88%97%E5%81%87%E6%BA%A2%E5%87%BA1.png" alt="顺序队列假溢出"></p>
+<p><img src="/article/37b7424c/%E9%A1%BA%E5%BA%8F%E9%98%9F%E5%88%97%E5%81%87%E6%BA%A2%E5%87%BA1.png" alt="顺序队列假溢出"></p>
 </li>
 <li><p>循环队列</p>
 <p>循环队列可以解决顺序队列的假溢出和越界问题。解决办法就是：从头开始，这样也就会形成头尾相接的循环，这也就是循环队列名字的由来。</p>
 <p>还是用上面的图，我们将 rear 指针指向数组下标为 0 的位置就不会有越界问题了。当我们再向队列中添加元素的时候， rear 向后移动。</p>
-<p><img src="https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97.png" alt="循环队列"></p>
+<p><img src="/article/37b7424c/%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97.png" alt="循环队列"></p>
 <p>顺序队列中，我们说 <code>front==rear</code> 的时候队列为空，循环队列中则不一样，也可能为满，如上图所示。解决办法有两种：</p>
 <ol>
 <li>可以设置一个标志变量 <code>flag</code>,当 <code>front==rear</code> 并且 <code>flag=0</code> 的时候队列为空，当<code>front==rear</code> 并且 <code>flag=1</code> 的时候队列为满。</li>
 <li>队列为空的时候就是 <code>front==rear</code> ，队列满的时候，我们保证数组还有一个空闲的位置，rear 就指向这个空闲位置，如下图所示，那么现在判断队列是否为满的条件就是： <code>(rear+1) % QueueSize= front</code> 。</li>
 </ol>
-<p><img src="https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97-%E5%A0%86%E6%BB%A1.png" alt="循环队列-队满"></p>
+<p><img src="/article/37b7424c/%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97-%E5%A0%86%E6%BB%A1.png" alt="循环队列-队满"></p>
 </li>
 </ol>
 </li>
