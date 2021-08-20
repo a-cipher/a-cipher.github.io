@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":"ture","show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":"ture","mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":"ture","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="前言&amp;emsp;&amp;emsp;MySQL是常用的关系型数据库，MySQL作为企业中常用的数据库之一，了解MySQL并熟练掌握MySQL的使用是十分重要。现将MySQL知识总结记录下来，方便个人学习查阅。主要知识来源GitHub开源项目JavaGuide。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL知识总结">
+<meta property="og:url" content="http://example.com/article/df19d329.html">
+<meta property="og:site_name" content="无名小站">
+<meta property="og:description" content="前言&amp;emsp;&amp;emsp;MySQL是常用的关系型数据库，MySQL作为企业中常用的数据库之一，了解MySQL并熟练掌握MySQL的使用是十分重要。现将MySQL知识总结记录下来，方便个人学习查阅。主要知识来源GitHub开源项目JavaGuide。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/paRXy9ic0MZNpBBEyR8WP6eaD1EGWUbMia2uEdpkQL0ZhLgBCf955qN3LGMAwkO2dZwu56NZpAMBQNSD0T9Hzn7w/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/paRXy9ic0MZNpBBEyR8WP6eaD1EGWUbMia3xbmAo1Cf9ZHB2Hh4HlB0LmibyTR9ufMKjmFgYZ1fK6POMrh3ibYIofA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/paRXy9ic0MZNpBBEyR8WP6eaD1EGWUbMiaoVRK5ibI0AYIktrbibKicWcUZibsNllxkW0NantMiaiaOGgb9R3WRFUPPkNQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210420165409106.png">
+<meta property="og:image" content="http://example.com/article/df19d329/%E6%80%BB%E7%BB%93-%E5%B8%B8%E7%94%A8%E6%97%A5%E6%9C%9F%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F.jpg">
+<meta property="article:published_time" content="2021-08-11T09:38:57.000Z">
+<meta property="article:modified_time" content="2021-08-11T10:40:11.284Z">
+<meta property="article:author" content="Jie">
+<meta property="article:tag" content="数据库">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://mmbiz.qpic.cn/mmbiz_png/paRXy9ic0MZNpBBEyR8WP6eaD1EGWUbMia2uEdpkQL0ZhLgBCf955qN3LGMAwkO2dZwu56NZpAMBQNSD0T9Hzn7w/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
+
+<link rel="canonical" href="http://example.com/article/df19d329.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>MySQL知识总结 | 无名小站</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="无名小站" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">无名小站</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-links">
+
+    <a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/article/df19d329.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/author.jpg">
+      <meta itemprop="name" content="Jie">
+      <meta itemprop="description" content="以后这样的事还多着呢">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无名小站">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MySQL知识总结
+        </h1>
+
+        <div class="post-meta">
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-08-11 17:38:57 / 修改时间：18:40:11" itemprop="dateCreated datePublished" datetime="2021-08-11T17:38:57+08:00">2021-08-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+            </span>
+
+         
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+         
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/article/df19d329.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/article/df19d329.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>7.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+          
+            <span id="/article/df19d329.html" class="post-meta-item leancloud_visitors" data-flag-title="MySQL知识总结" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&emsp;&emsp;MySQL是常用的关系型数据库，MySQL作为企业中常用的数据库之一，了解MySQL并熟练掌握MySQL的使用是十分重要。现将MySQL知识总结记录下来，方便个人学习查阅。主要知识来源GitHub开源项目<a target="_blank" rel="noopener" href="https://github.com/Snailclimb/JavaGuide">JavaGuide</a>。</p>
+<span id="more"></span>
+
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ol>
+<li><p>什么是数据库,数据库管理系统,数据库系统,数据库管理员?</p>
+<ul>
+<li><strong>数据库</strong> :数据库(DataBase 简称 DB)就是信息的集合或者说数据库是由数据库管理系统管理的数据的集合。</li>
+<li><strong>数据库管理系统</strong> : 数据库管理系统(Database Management System 简称 DBMS)是一种操纵和管理数据库的大型软件，通常用语用于建立、使用和维护数据库。</li>
+<li><strong>数据库系统</strong> : 数据库系统(Data Base System，简称 DBS)通常由软件、数据库和数据管理员(DBA)组成。</li>
+<li><strong>数据库管理员</strong> : 数据库管理员(Database Administrator,简称 DBA)负责全面管理和控制数据库系统。</li>
+</ul>
+</li>
+<li><p>什么是关系型数据库？</p>
+<p>建立在关系模型基础上的数据库。关系模型表明了数据库所存数据之间的联系（一对一，一对多，多对多）。</p>
+<p>大部分关系型数据库使用SQL来操作数据库中的数据。常见关系型数据库MySQL（3306），Oracle，SQL server等。</p>
+</li>
+</ol>
+<h2 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h2><ol>
+<li><p>查看MySQL存储引擎命令？</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">show</span> engines;</span><br></pre></td></tr></table></figure>
+
+<p>默认InnoDB，属于事务性引擎，支持事务</p>
+</li>
+<li><p>MyISAM 和 InnoDB 的区别？</p>
+<p><strong>1.是否支持行级锁</strong></p>
+<p>MyISAM 只有表级锁(table-level locking)，而 InnoDB 支持行级锁(row-level locking)和表级锁,默认为行级锁。</p>
+<p>也就说，MyISAM 一锁就是锁住了整张表，这在并发写的情况下是多么滴憨憨啊！这也是为什么 InnoDB 在并发写的时候，性能更牛皮了！</p>
+<p><strong>2.是否支持事务</strong></p>
+<p>MyISAM 不提供事务支持。</p>
+<p>InnoDB 提供事务支持，具有提交(commit)和回滚(rollback)事务的能力。</p>
+<p><strong>3.是否支持外键</strong></p>
+<p>MyISAM 不支持，而 InnoDB 支持。</p>
+<p>🌈 拓展一下：</p>
+<p>一般我们也是不建议在数据库层面使用外键的，应用层面可以解决。不过，这样会对数据的一致性造成威胁。具体要不要使用外键还是要根据你的项目来决定。</p>
+<p><strong>4.是否支持数据库异常崩溃后的安全恢复</strong></p>
+<p>MyISAM 不支持，而 InnoDB 支持。</p>
+<p>使用 InnoDB 的数据库在异常崩溃后，数据库重新启动的时候会保证数据库恢复到崩溃前的状态。这个恢复的过程依赖于 <code>redo log</code> 。</p>
+<p>🌈 拓展一下：</p>
+<ul>
+<li>MySQL InnoDB 引擎使用 <strong>redo log(重做日志)</strong> 保证事务的<strong>持久性</strong>，使用 <strong>undo log(回滚日志)</strong> 来保证事务的<strong>原子性</strong>。</li>
+<li>MySQL InnoDB 引擎通过 <strong>锁机制</strong>、<strong>MVCC</strong> 等手段来保证事务的隔离性（ 默认支持的隔离级别是 <strong><code>REPEATABLE-READ</code></strong> ）。</li>
+<li>保证了事务的持久性、原子性、隔离性之后，一致性才能得到保障。</li>
+</ul>
+<p><strong>5.是否支持 MVCC</strong></p>
+<p>MyISAM 不支持，而 InnoDB 支持。</p>
+<p>讲真，这个对比有点废话，毕竟 MyISAM 连行级锁都不支持。</p>
+<p>MVCC 可以看作是行级锁的一个升级，可以有效减少加锁操作，提供性能。</p>
+</li>
+<li><p>MyISAM 和 InnoDB 的选择问题？</p>
+<p>大多情况选择InnoDB，MyISAM不支持事务，崩溃恢复！</p>
+</li>
+</ol>
+<h2 id="锁机制"><a href="#锁机制" class="headerlink" title="锁机制"></a>锁机制</h2><ol>
+<li><p>什么是锁机制？</p>
+<p>锁是计算机协调多个进程或线程并发访问某一资源的一种机制。</p>
+<p>从性能上来分，锁分为乐观锁和悲观锁。</p>
+<p>从数据库操作的类型分，锁分读锁和写锁（都是悲观锁）。</p>
+<p>从操作数据库的粒度来说，分表锁和行锁</p>
+</li>
+<li><p>悲观锁？</p>
+<p>当要对数据库中的一条数据进行修改的时候，为了避免同时被其他人修改，最好的办法就是直接对该数据进行加锁以防止并发。这种借助数据库锁机制，在修改数据之前先锁定，再修改的方式被称之为悲观并发控制【Pessimistic Concurrency Control，缩写“PCC”，又名“悲观锁”】。</p>
+<p>悲观锁的实现：</p>
+<ol>
+<li>传统的关系型数据库使用这种锁机制，比如行锁、表锁、读锁、写锁等，都是在操作之前先上锁。</li>
+<li>Java 里面的同步 synchronized关键字的实现。</li>
+</ol>
+</li>
+<li><p>乐观锁？</p>
+<p>乐观锁是相对悲观锁而言的，乐观锁假设数据一般情况不会造成冲突，所以在数据进行提交更新的时候，才会正式对数据的冲突与否进行检测，如果冲突，则返回给用户异常信息，让用户决定如何去做。乐观锁适用于读多写少的场景，这样可以提高程序的吞吐量。</p>
+<p>乐观锁的实现：</p>
+<ol>
+<li>CAS 实现：Java 中java.util.concurrent.atomic包下面的原子变量使用了乐观锁的一种 CAS 实现方式。</li>
+<li>版本号控制：一般是在数据表中加上一个数据版本号 version 字段，表示数据被修改的次数。当数据被修改时，version 值会 +1。当线程 A 要更新数据时，在读取数据的同时也会读取 version 值，在提交更新时，若刚才读取到的 version 值与当前数据库中的 version 值相等时才更新，否则重试更新操作，直到更新成功</li>
+</ol>
+</li>
+<li><p>读锁和写锁？</p>
+<p>读锁（共享锁，S锁 Shared）：针对同一份数据，多个读操作可以同时进行并且不会相互影响</p>
+<p>写锁（排它锁，X锁 eXclusive）：在当前写操作完成前，会阻断其他一切的锁</p>
+</li>
+<li><p><strong>表级锁和行级锁对比？</strong></p>
+<ul>
+<li><strong>表级锁：</strong> MySQL 中锁定 <strong>粒度最大</strong> 的一种锁，对当前操作的整张表加锁，实现简单，资源消耗也比较少，加锁快，不会出现死锁。其锁定粒度最大，触发锁冲突的概率最高，并发度最低，MyISAM 和 InnoDB 引擎都支持表级锁。</li>
+<li><strong>行级锁：</strong> MySQL 中锁定 <strong>粒度最小</strong> 的一种锁，只针对当前操作的行进行加锁。 行级锁能大大减少数据库操作的冲突。其加锁粒度最小，并发度高，但加锁的开销也最大，加锁慢，会出现死锁。</li>
+<li>考虑上述特点，表级锁使用与并发性不高，以查询为主，少量更新的应用，比如小型的web应用；而行级锁适用于高并发环境下，对事务完整性要求较高的系统，如在线事务处理系统。</li>
+</ul>
+</li>
+<li><p>InnoDB 存储引擎锁的机制有哪些？</p>
+<ul>
+<li>Record lock：记录锁，单个行记录上的锁</li>
+<li>Gap lock：间隙锁，锁定一个范围，不包括记录本身</li>
+<li>Next-key lock：record+gap 临键锁，锁定一个范围，包含记录本身</li>
+</ul>
+</li>
+</ol>
+<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><ol>
+<li><p>什么是事务？</p>
+<p>逻辑上的一组操作，要不都执行，要不都不执行。</p>
+</li>
+<li><p>事务的四大特性ACID（关系型数据库事务都有这个特点）？</p>
+<ul>
+<li><strong>原子性</strong> Atomicity 事务是最小的执行单位，不能再分割。要不都执行，要不都不执行</li>
+<li><strong>一致性</strong> Consistency 执行事务前后，数据需要保持一致</li>
+<li><strong>隔离性</strong> Isolation 并发访问时，一个用户事务不能被其他事务所干扰</li>
+<li><strong>持久性</strong> Durability 事务提交之后，对数据库中的改变是持久的</li>
+</ul>
+</li>
+<li><p>常见的并发异常？</p>
+<ul>
+<li>脏读：一个事务读到了另外一个事务修改了但是没有提交的数据</li>
+<li>不可重复读：一个事务读多次同一数据，中途该数据被另外一个事务读取并修改，导致两次读到的数据不一致</li>
+<li>幻读：一个事务读多次同一数据，中途该数据被另外一个并发事务插入或者删除，导致随后读取的数据发生变化，像幻觉一样</li>
+<li>丢失修改：两个事务先后访问并修改数据，导致第一个修改的数据丢失</li>
+</ul>
+</li>
+<li><p>事务隔离级别？</p>
+<ul>
+<li><p>READ-UNCOMMITTED 读取未提交</p>
+</li>
+<li><p>READ-COMMITTED 读取已提交，可避免脏读</p>
+</li>
+<li><p>REPEATABLE-READ 可重复读，多次读取数据一致，可避免脏读和不可重复读</p>
+</li>
+<li><p>SERIALIZABLE 可串行化，所有事务依次执行，可防止脏读，不可重复读，幻读</p>
+<table>
+<thead>
+<tr>
+<th>隔离级别</th>
+<th>脏读</th>
+<th>不可重复读</th>
+<th>幻读</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>READ-UNCOMMITTED</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td>READ-COMMITTED</td>
+<td>×</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td>REPEATABLE-READ</td>
+<td>×</td>
+<td>×</td>
+<td>√</td>
+</tr>
+<tr>
+<td>SERIALIZABLE</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+<li><p>MySQL默认隔离级别？</p>
+<p>MySQL InnoDB 存储引擎的默认支持的隔离级别是 <strong>REPEATABLE-READ（可重读）</strong></p>
+</li>
+</ol>
+<h2 id="MVVC"><a href="#MVVC" class="headerlink" title="MVVC"></a>MVVC</h2><ol>
+<li><p>什么是mvvc?</p>
+<p>英文全称为Multi-Version Concurrency Control,翻译为中文即 多版本并发控制。某种程度上就是乐观锁的一种实现方式。在Java编程中，如果把乐观锁看成一个接口，MVCC便是这个接口的一个实现类而已。</p>
+</li>
+<li><p>MVVC机制的实现？</p>
+<p>MVCC机制的实现是通过read-view机制与undo日志版本链对比，来使得不同的事务会根据数据版本链进行比对来读取同一条数据在版本链上的不同版本数据，进行数据的隔离。下面通过一张图来详细描述MVCC的实现机制。</p>
+<p>首先我们介绍一下日志版本链，日志版本链是指一行数据被多个事务依次修改后，每次事务修改完，mysql都会保留修改前的数据的undo回滚日志，同时使用了两个隐藏字段trx_id(事务号)和roll_pointer(回滚指针)把这些回滚日志串联起来形成一个版本链。具体的如图所示：</p>
+<p>图中每一行代表一个回滚日志，每个日志末尾都有一个roll_pointer指向上一条日志。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/paRXy9ic0MZNpBBEyR8WP6eaD1EGWUbMia2uEdpkQL0ZhLgBCf955qN3LGMAwkO2dZwu56NZpAMBQNSD0T9Hzn7w/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p>当事务开启时，执行任何查询sql都会生成当前事务的一致性视图read-view，生成的视图在事务结束之前都不会变化，这个视图由查询时所有未提交事务id数组和已创建的最大事务id组成。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/paRXy9ic0MZNpBBEyR8WP6eaD1EGWUbMia3xbmAo1Cf9ZHB2Hh4HlB0LmibyTR9ufMKjmFgYZ1fK6POMrh3ibYIofA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p>在我们当前的日志版本链内，查询了一条数据，创建了一个对应的read-view，那么它应该是这样，[80,81,82],202 ,数组内最小的id为min_id,最大的事务id(max_id)是202。</p>
+<p>具体的版本链比对规则：</p>
+<ol>
+<li><p>如果trx_id&lt;min_id , 表示这个版本是已提交的事务产生的，可见</p>
+</li>
+<li><p>如果trx_id &gt;max_id，表示是由生成read-view之后的事务版本生成的，不可见</p>
+</li>
+<li><p>如果trx_id落在min_id和max_id之间，分为两种情况：</p>
+</li>
+<li><ol>
+<li>如果trx_id在read-view的数组内，不可见</li>
+<li>如果trx_id不在read-view的数组内，可见</li>
+</ol>
+</li>
+</ol>
+<p>PS：事务的trx_id生成规则是依次递增的，所以后面生成的trx_id一定比前面的大。事务的真正启动，是在执行第一个修改操作数据库的语句开始的，查询语句不生成事务id。</p>
+<p>最后，再提供一张图方便大家理解：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/paRXy9ic0MZNpBBEyR8WP6eaD1EGWUbMiaoVRK5ibI0AYIktrbibKicWcUZibsNllxkW0NantMiaiaOGgb9R3WRFUPPkNQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+</li>
+</ol>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><ol>
+<li><p>什么是索引，有什么用？</p>
+<p>索引是一种快速查询和检索数据的数据结构，作用相当于目录的作用。常见的索引有：B树，B+树和 Hash。</p>
+</li>
+<li><p>索引的优缺点？</p>
+<ul>
+<li>优点：加快数据检索速度，创建唯一性索引，可以保证每一行数据的唯一性</li>
+<li>缺点：创建维护索引需要时间，同时占用一定空间。</li>
+</ul>
+</li>
+<li><p>Hash?</p>
+<p>哈希表是键值对的集合，通过键(key)即可快速取出对应的值(value)，因此哈希表可以快速检索数据（接近 O（1））。</p>
+<p><strong>为何能够通过 key 快速取出 value呢？</strong> 原因在于 <strong>哈希算法</strong>（也叫散列算法）。通过哈希算法，我们可以快速找到 value 对应的 index，找到了 index 也就找到了对应的 value。</p>
+</li>
+<li><p>MySQL中不使用Hash作为索引数据结构的原因？</p>
+<p><strong>1.Hash 冲突问题</strong> ：多个不同的 key 最后得到的 index 相同。</p>
+<p><strong>2.Hash 索引不支持顺序和范围查询(Hash 索引不支持顺序和范围查询是它最大的缺点：</strong> 假如我们要对表中的数据进行排序或者进行范围查询，那 Hash 索引可就不行了。</p>
+</li>
+<li><p>B 树&amp; B+树 ？</p>
+<p>B 树也称 B-树,全称为 <strong>多路平衡查找树</strong> ，B+ 树是 B 树的一种变体。B 树和 B+树中的 B 是 <code>Balanced</code> （平衡）的意思。</p>
+<p>目前大部分数据库系统及文件系统都采用 B-Tree 或其变种 B+Tree 作为索引结构。</p>
+<p><strong>B 树&amp; B+树两者有何异同呢？</strong></p>
+<ul>
+<li><p>B 树的所有节点既存放键(key) 也存放 数据(data)，而 B+树只有叶子节点存放 key 和 data，其他内节点只存放 key。</p>
+</li>
+<li><p>B 树的叶子节点都是独立的;B+树的叶子节点有一条引用链指向与它相邻的叶子节点。</p>
+</li>
+<li><p>B 树的检索的过程相当于对范围内的每个节点的关键字做二分查找，可能还没有到达叶子节点，检索就结束了。而 B+树的检索效率就很稳定了，任何查找都是从根节点到叶子节点的过程，叶子节点的顺序检索很明显。</p>
+<p><img src="https://img-blog.csdnimg.cn/20210420165409106.png" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>索引类型？</p>
+<ul>
+<li>主键索引 数据表的主键列使用的就是主键索引。</li>
+<li>二级索引（辅助索引） <strong>二级索引又称为辅助索引，是因为二级索引的叶子节点存储的数据是主键。也就是说，通过二级索引，可以定位主键的位置。</strong></li>
+</ul>
+</li>
+<li><p>聚集索引？</p>
+<p><strong>聚集索引即索引结构和数据一起存放的索引。主键索引属于聚集索引。</strong></p>
+<p>优点：查询速度快，整个 B+树本身就是一颗多叉平衡树，叶子节点也都是有序的，定位到索引的节点，就相当于定位到了数据。</p>
+<p>缺点：依赖有序的数据，更新代价大。</p>
+</li>
+<li><p>非聚集索引？</p>
+<p><strong>非聚集索引即索引结构和数据分开存放的索引。二级索引属于非聚集索引。</strong></p>
+<p>优点：<br>更新代价比聚集索引要小 。非聚集索引的更新代价就没有聚集索引那么大了，非聚集索引的叶子节点是不存放数据的</p>
+<p>缺点：<br>跟聚集索引一样，非聚集索引也依赖于有序的数据<br>可能会二次查询(回表) :这应该是非聚集索引最大的缺点了。 当查到索引对应的指针或主键后，可能还需要根据指针或主键再到数据文件或表中查询。</p>
+</li>
+<li><p>创建索引的注意事项？</p>
+<p><strong>1.选择合适的字段创建索引：</strong></p>
+<ul>
+<li><strong>不为 NULL 的字段</strong> ：索引字段的数据应该尽量不为 NULL，因为对于数据为 NULL 的字段，数据库较难优化。如果字段频繁被查询，但又避免不了为 NULL，建议使用 0,1,true,false 这样语义较为清晰的短值或短字符作为替代。</li>
+<li><strong>被频繁查询的字段</strong> ：我们创建索引的字段应该是查询操作非常频繁的字段。</li>
+<li><strong>被作为条件查询的字段</strong> ：被作为 WHERE 条件查询的字段，应该被考虑建立索引。</li>
+<li><strong>频繁需要排序的字段</strong> ：索引已经排序，这样查询可以利用索引的排序，加快排序查询时间。</li>
+<li><strong>被经常频繁用于连接的字段</strong> ：经常用于连接的字段可能是一些外键列，对于外键列并不一定要建立外键，只是说该列涉及到表与表的关系。对于频繁被连接查询的字段，可以考虑建立索引，提高多表连接查询的效率。</li>
+</ul>
+<p><strong>2.被频繁更新的字段应该慎重建立索引。</strong></p>
+<p>虽然索引能带来查询上的效率，但是维护索引的成本也是不小的。 如果一个字段不被经常查询，反而被经常修改，那么就更不应该在这种字段上建立索引了。</p>
+<p><strong>3.尽可能的考虑建立联合索引而不是单列索引。</strong></p>
+<p>因为索引是需要占用磁盘空间的，可以简单理解为每个索引都对应着一颗 B+树。如果一个表的字段过多，索引过多，那么当这个表的数据达到一个体量后，索引占用的空间也是很多的，且修改索引时，耗费的时间也是较多的。如果是联合索引，多个字段在一个索引上，那么将会节约很大磁盘空间，且修改数据的操作效率也会提升。</p>
+<p><strong>4.注意避免冗余索引</strong> 。</p>
+<p>冗余索引指的是索引的功能相同，能够命中索引(a, b)就肯定能命中索引(a) ，那么索引(a)就是冗余索引。如（name,city ）和（name ）这两个索引就是冗余索引，能够命中前者的查询肯定是能够命中后者的 在大多数情况下，都应该尽量扩展已有的索引而不是创建新索引。</p>
+<p><strong>5.考虑在字符串类型的字段上使用前缀索引代替普通索引。</strong></p>
+<p>前缀索引仅限于字符串类型，较普通索引会占用更小的空间，所以可以考虑使用前缀索引带替普通索引。</p>
+</li>
+</ol>
+<h2 id="语句执行流程"><a href="#语句执行流程" class="headerlink" title="语句执行流程"></a>语句执行流程</h2><ul>
+<li>MySQL 主要分为 Server 层和引擎层，Server 层主要包括连接器、查询缓存、分析器、优化器、执行器，同时还有一个日志模块（binlog），这个日志模块所有执行引擎都可以共用，redolog 只有 InnoDB 有。</li>
+<li>引擎层是插件式的，目前主要包括，MyISAM,InnoDB,Memory 等。</li>
+<li>查询语句的执行流程如下：权限校验（如果命中缓存）—&gt;查询缓存—&gt;分析器—&gt;优化器—&gt;权限校验—&gt;执行器—&gt;引擎<ul>
+<li>先判断你有没有权限</li>
+<li>查询缓存中是否有数据（MySQL 8.0 之后移除）</li>
+<li>分析查询语句，词条分析（提取其中关键字）+ 语法分析（判断是否符合语法）</li>
+<li>优化器确定执行的方案，据自己的优化算法进行选择执行效率最好的一个方案（不一定最好）</li>
+<li>进行权限校验，如果没有权限就会返回错误信息，如果有权限就会调用数据库引擎接口，返回引擎的执行结果。</li>
+</ul>
+</li>
+<li>更新语句执行流程如下：分析器—-&gt;权限校验—-&gt;执行器—&gt;引擎—redo log(prepare 状态)—&gt;binlog—&gt;redo log(commit状态)<ul>
+<li>update tb_student A set A.age=’19’ where A.name=’ 张三 ‘;</li>
+<li>先查询到张三这一条数据，如果有缓存，也是会用到缓存。</li>
+<li>然后拿到查询的语句，把 age 改为 19，然后调用引擎 API 接口，写入这一行数据，InnoDB 引擎把数据保存在内存中，同时记录 redo log，此时 redo log 进入 prepare 状态，然后告诉执行器，执行完成了，随时可以提交。</li>
+<li>执行器收到通知后记录 binlog，然后调用引擎接口，提交 redo log 为提交状态。</li>
+<li>更新完成。</li>
+</ul>
+</li>
+</ul>
+<h2 id="存储时间"><a href="#存储时间" class="headerlink" title="存储时间"></a>存储时间</h2><ol>
+<li><p>MySQL中使用什么存储时间好？</p>
+<p>切记不要用字符串存储时间，占用空间大，日期效率低</p>
+<p>每种方式都有各自的优势，根据实际场景才是王道。下面再对这三种方式做一个简单的对比，以供大家实际开发中选择正确的存放时间的数据类型：</p>
+</li>
+</ol>
+<p><img src="/article/df19d329/%E6%80%BB%E7%BB%93-%E5%B8%B8%E7%94%A8%E6%97%A5%E6%9C%9F%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F.jpg" alt="常用日期存储方式"></p>
+<h2 id="易混点"><a href="#易混点" class="headerlink" title="易混点"></a>易混点</h2><ol>
+<li>drop , truncate , delete 之间的区别？<ul>
+<li>drop(丢弃数据): <code>drop table 表名</code> ，删表</li>
+<li>truncate (清空数据) : <code>truncate table 表名</code> ，清空表的数据</li>
+<li>delete（删除数据） : <code>delete from 表名 where 列名=值</code>，删除具体的某一行数据</li>
+<li>drop和truncate属于DDL语言，数据定义语言，delete属于DML语言，数据操作语言</li>
+</ul>
+</li>
+<li>……</li>
+</ol>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><strong>本文主要知识来源于网络，仅作为个人学习使用</strong></p>
+<p>参考来源：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Snailclimb/JavaGuide">https://github.com/Snailclimb/JavaGuide</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/d2ac26ca6525">https://www.jianshu.com/p/d2ac26ca6525</a></p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/7KblQbpWXTW3I9MHWRvnkg">https://mp.weixin.qq.com/s/7KblQbpWXTW3I9MHWRvnkg</a></p>
+
+    </div>
+
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+
+
+    
+    
+    
+        <div class="reward-container">
+  <div>您的支持将成为我创作的动力！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Jie 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="Jie 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Jie
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://example.com/article/df19d329.html" title="MySQL知识总结">http://example.com/article/df19d329.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"># 数据库</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/article/7cc9a691.html" rel="prev" title="MyBatis-Plus代码生成">
+      <i class="fa fa-chevron-left"></i> MyBatis-Plus代码生成
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/article/f7ede91d.html" rel="next" title="Java基础">
+      Java基础 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">2.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E"><span class="nav-number">3.</span> <span class="nav-text">存储引擎</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%81%E6%9C%BA%E5%88%B6"><span class="nav-number">4.</span> <span class="nav-text">锁机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1"><span class="nav-number">5.</span> <span class="nav-text">事务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVVC"><span class="nav-number">6.</span> <span class="nav-text">MVVC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95"><span class="nav-number">7.</span> <span class="nav-text">索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E5%8F%A5%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="nav-number">8.</span> <span class="nav-text">语句执行流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E6%97%B6%E9%97%B4"><span class="nav-number">9.</span> <span class="nav-text">存储时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%98%93%E6%B7%B7%E7%82%B9"><span class="nav-number">10.</span> <span class="nav-text">易混点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">11.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jie"
+      src="/images/author.jpg">
+  <p class="site-author-name" itemprop="name">Jie</p>
+  <div class="site-description" itemprop="description">以后这样的事还多着呢</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+       
+         <a href="https://github.com/a-cipher" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;a-cipher" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+       
+      </span>
+      <span class="links-of-author-item">
+       
+         <a href="mailto:a-cipher@foxmail.com" title="E-Mail → mailto:a-cipher@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+       
+      </span>
+      <span class="links-of-author-item">
+       
+         <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i></a>
+       
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jie</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">43k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">39 分钟</span>
+</div>
+
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("08/01/2021 00:00:00");//此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '74ASTAjyuQCIN3sUmF6NB914-gzGzoHsz',
+      appKey     : '4LvGCRjICuhdKF9qaO2jYOxM',
+      placeholder: "尽情说说你的想法！",
+      avatar     : 'wavatar',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":"true#是否在手机端显示"},"log":false});</script></body>
+</html>
