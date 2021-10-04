@@ -1,6 +1,208 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>九月秋招挨打记录</title>
+    <url>/article/52337174.html</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&emsp;&emsp;正值国庆，秋招也开始这么久了。从九月开学开始，正式开始秋招，多多少少也面了一些公司，大厂没啥信心，中小厂也被狠狠打击，特此记录一下面经。期待这个月的好消息。<span id="more"></span></p>
+<h2 id="线上"><a href="#线上" class="headerlink" title="线上"></a>线上</h2><h3 id="1-恒生"><a href="#1-恒生" class="headerlink" title="1 恒生"></a>1 恒生</h3><ol>
+<li><p>笔试</p>
+<ul>
+<li>SQL语句编写，索引，表连接</li>
+<li>打印杨辉三角</li>
+<li>打印素数</li>
+</ul>
+</li>
+<li><p>一面</p>
+<ul>
+<li>你有用过spring boot说说你的理解？配置文件？</li>
+<li>索引结构，B+树</li>
+<li>了解哪些设计模式</li>
+<li>项目有哪些亮点</li>
+<li>数据库隔离级别</li>
+<li>说说乐观锁，悲观锁</li>
+<li>最近失败的事情</li>
+<li>对你的上司有什么期望</li>
+<li>你的职业规划</li>
+<li>反问<ul>
+<li>面试面的怎么样</li>
+<li>培养方案</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>二面（挂）</p>
+<ul>
+<li><p>项目遇到的困难</p>
+</li>
+<li><p>用到断点续传吗</p>
+</li>
+<li><p>数据库表怎么设计的</p>
+</li>
+<li><p>数据库怎么优化</p>
+</li>
+<li><p>索引有哪些</p>
+</li>
+<li><p>mybatis掌握的怎么样</p>
+</li>
+<li><p>怎么学习算法的</p>
+</li>
+<li><p>hr</p>
+<ul>
+<li>家庭情况</li>
+<li>个人规划</li>
+</ul>
+</li>
+<li><p>反问</p>
+<ul>
+<li><p>面试的怎么样，让我自己评价。。</p>
+</li>
+<li><p>期望薪资 </p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="2-4399"><a href="#2-4399" class="headerlink" title="2 4399"></a>2 4399</h3><ol>
+<li><p>笔试（挂）</p>
+<ul>
+<li><p>判断是否是回文数，（栈解决）</p>
+</li>
+<li><p>完全背包问题，（dp)</p>
+</li>
+<li><p>进制转换（2的n次方式考虑位运算，其余则字符串进位一个个算）</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toHex</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (num == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;0&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        StringBuffer sb = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">        <span class="comment">//这里转换成16进制，每四位相与转换即可，其他进制同理</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">7</span>; i &gt;= <span class="number">0</span>; i --) &#123;</span><br><span class="line">            <span class="comment">//位运算，与</span></span><br><span class="line">            <span class="keyword">int</span> val = (num &gt;&gt; (<span class="number">4</span> * i)) &amp; <span class="number">0xf</span>;</span><br><span class="line">            <span class="keyword">if</span> (sb.length() &gt; <span class="number">0</span> || val &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">char</span> digit = val &lt; <span class="number">10</span> ? (<span class="keyword">char</span>) (<span class="string">&#x27;0&#x27;</span> + val) : (<span class="keyword">char</span>) (<span class="string">&#x27;a&#x27;</span> + val - <span class="number">10</span>);</span><br><span class="line">                sb.append(digit);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sb.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+<h3 id="3-小红书"><a href="#3-小红书" class="headerlink" title="3 小红书"></a>3 小红书</h3><p>​    简历挂</p>
+<h3 id="4-海康"><a href="#4-海康" class="headerlink" title="4 海康"></a>4 海康</h3><ol>
+<li>笔试<ul>
+<li>SQL</li>
+<li>简单算法</li>
+<li>设计模式 ，适配器还是啥去了</li>
+</ul>
+</li>
+<li>一面（挂）<ul>
+<li>使用的Java版本</li>
+<li>函数式接口，lambda表达式</li>
+<li>default方法默认实现</li>
+<li>Stream流</li>
+<li>没听清不知道</li>
+<li>callable和runnable区别</li>
+<li>线程池的七个参数</li>
+<li>移除数组中大于十的元素，使用迭代器remove</li>
+<li>数据结构，栈的实现相关</li>
+<li>计网，tcp和utp区别</li>
+<li>使用tcp的协议有哪些</li>
+<li>http和https的区别</li>
+<li>https怎么实现加密的</li>
+</ul>
+</li>
+</ol>
+<h3 id="5-微众银行"><a href="#5-微众银行" class="headerlink" title="5 微众银行"></a>5 微众银行</h3><ol>
+<li>笔试<ul>
+<li>已知前缀和求原序列</li>
+<li>机器人消耗能量，（模拟）</li>
+<li>大哥数数（Date使用）</li>
+</ul>
+</li>
+</ol>
+<h3 id="6-58同城"><a href="#6-58同城" class="headerlink" title="6 58同城"></a>6 58同城</h3><ol>
+<li>笔试<ul>
+<li>零钱兑换问题（dp)</li>
+<li>把二维数组转换成一维数组，对去重结果进行排序</li>
+<li>二维数组，路径是否可达（dfs)</li>
+</ul>
+</li>
+</ol>
+<h2 id="线下"><a href="#线下" class="headerlink" title="线下"></a>线下</h2><h3 id="1-深圳昂楷科技"><a href="#1-深圳昂楷科技" class="headerlink" title="1 深圳昂楷科技"></a>1 深圳昂楷科技</h3><ol>
+<li>笔试<ul>
+<li>switch不能用哪些数据类型<ul>
+<li>switch可以作用于char byte short int及它们对应的包装类型，switch不可作用于long double float boolean及他们的包装类型。在 JDK1.5之后可以作用于枚举类型，在JDK1.7之后可作用于String类型。</li>
+</ul>
+</li>
+<li>8*2 最高效率实现</li>
+<li>数据脱敏<ul>
+<li>数据脱敏是指对某些敏感信息通过脱敏规则进行数据的变形，实现敏感隐私数据的可靠保护。在涉及客户安全数据或者一些商业性敏感数据的情况下，在不违反系统规则条件下，对真实数据进行改造并提供测试使用，如身份证号、手机号、卡号、客户号等个人信息都需要进行数据脱敏。</li>
+</ul>
+</li>
+<li>单例模式</li>
+<li>简单编程</li>
+</ul>
+</li>
+<li>一面（挂）<ul>
+<li>Java基本数据类型，及对应大小</li>
+<li>说说你了解的集合</li>
+<li>hashmap底层原理</li>
+<li>创建线程的方式</li>
+<li>说说什么是线程池</li>
+<li>spring的ioc和aop</li>
+<li>aop的作用</li>
+<li>springmvc的流程</li>
+<li>Redis</li>
+<li>数据库设计，表之间怎么联系</li>
+<li>mybatis你是怎么用的</li>
+<li>namespace作用，映射</li>
+<li>数据库的几种连接查询</li>
+</ul>
+</li>
+</ol>
+<h3 id="2-中车"><a href="#2-中车" class="headerlink" title="2 中车"></a>2 中车</h3><ol>
+<li>笔试<ul>
+<li>完形填空+阅读理解，麻了</li>
+<li>软件工程相关知识</li>
+</ul>
+</li>
+<li>一面（面试官非相关技术人员）<ul>
+<li>性格，沟通</li>
+<li>抗压</li>
+<li>随便问问就没了</li>
+</ul>
+</li>
+<li>二面<ul>
+<li>简单自我介绍</li>
+<li>招运维，先各地跑半年，再开发</li>
+<li>溜了</li>
+</ul>
+</li>
+</ol>
+<h3 id="3-兴盛优选"><a href="#3-兴盛优选" class="headerlink" title="3 兴盛优选"></a>3 兴盛优选</h3><ol>
+<li><p>笔试</p>
+<ul>
+<li><p>io中断和dma方式区别</p>
+</li>
+<li><p>LRU缓存缺页问题(页面置换算法)</p>
+</li>
+<li><p>栈排序问题</p>
+</li>
+<li><p>出现一半以上的数字</p>
+</li>
+<li><p>设计选课系统</p>
+</li>
+<li><p>3000用户设计5w人QPS，问题转换为怎么应对大流量</p>
+<ul>
+<li><p><strong>QPS（Query Per Second）：每秒请求数，就是说服务器在一秒的时间内处理了多少个请求。</strong></p>
+</li>
+<li><p><strong>缓存</strong>：说白了，就是让数据尽早进入缓存，离程序近一点，不要大量频繁的访问DB。</p>
+<p><strong>降级</strong>：如果不是核心链路，那么就把这个服务降级掉。打个比喻，现在的APP都讲究千人千面，拿到数据后，做个性化排序展示，如果在大流量下，这个排序就可以降级掉！</p>
+<p><strong>限流</strong>：大家都知道，北京地铁早高峰，地铁站都会做一件事情，就是限流了！想法很直接，就是想在一定时间内把请求限制在一定范围内，保证系统不被冲垮，同时尽可能提升系统的吞吐量。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>经验分享</tag>
+        <tag>秋招</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>数据结构之线性结构</title>
     <url>/article/37b7424c.html</url>
     <content><![CDATA[<h1 id="线性结构"><a href="#线性结构" class="headerlink" title="线性结构"></a>线性结构</h1><h2 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h2><ol>
@@ -1053,9 +1255,9 @@
         <category>技术</category>
       </categories>
       <tags>
-        <tag>springboot</tag>
-        <tag>mybatis</tag>
         <tag>java</tag>
+        <tag>mybatis</tag>
+        <tag>springboot</tag>
       </tags>
   </entry>
   <entry>
@@ -1157,9 +1359,9 @@ public String dynamic_table(@RequestParam(value = &quot;pn&quot;,defaultValue = 
         <category>技术</category>
       </categories>
       <tags>
-        <tag>springboot</tag>
-        <tag>mybatis</tag>
         <tag>java</tag>
+        <tag>mybatis</tag>
+        <tag>springboot</tag>
       </tags>
   </entry>
   <entry>

@@ -21,22 +21,21 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":"ture","show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":"ture","mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":"ture","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="前言 &amp;emsp;&amp;emsp;MyBatis-Plus（简称 MP）是一个Mybatis的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化开发、提高效率而生。刚好最近学到springboot，来实现一个简单的整合。">
+  <meta name="description" content="前言&amp;emsp;&amp;emsp;正值国庆，秋招也开始这么久了。从九月开学开始，正式开始秋招，多多少少也面了一些公司，大厂没啥信心，中小厂也被狠狠打击，特此记录一下面经。期待这个月的好消息。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mybatis-Plus整合SpringBoot">
-<meta property="og:url" content="http://example.com/article/a09c4a7b.html">
+<meta property="og:title" content="九月秋招挨打记录">
+<meta property="og:url" content="http://example.com/article/52337174.html">
 <meta property="og:site_name" content="无名小站">
-<meta property="og:description" content="前言 &amp;emsp;&amp;emsp;MyBatis-Plus（简称 MP）是一个Mybatis的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化开发、提高效率而生。刚好最近学到springboot，来实现一个简单的整合。">
+<meta property="og:description" content="前言&amp;emsp;&amp;emsp;正值国庆，秋招也开始这么久了。从九月开学开始，正式开始秋招，多多少少也面了一些公司，大厂没啥信心，中小厂也被狠狠打击，特此记录一下面经。期待这个月的好消息。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-08-03T09:04:16.000Z">
-<meta property="article:modified_time" content="2021-08-05T08:33:38.400Z">
+<meta property="article:published_time" content="2021-10-04T07:06:04.000Z">
+<meta property="article:modified_time" content="2021-10-04T07:14:46.750Z">
 <meta property="article:author" content="Jie">
-<meta property="article:tag" content="java">
-<meta property="article:tag" content="mybatis">
-<meta property="article:tag" content="springboot">
+<meta property="article:tag" content="经验分享">
+<meta property="article:tag" content="秋招">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/article/a09c4a7b.html">
+<link rel="canonical" href="http://example.com/article/52337174.html">
 
 
 <script id="page-configurations">
@@ -49,7 +48,7 @@
   };
 </script>
 
-  <title>Mybatis-Plus整合SpringBoot | 无名小站</title>
+  <title>九月秋招挨打记录 | 无名小站</title>
   
 
 
@@ -198,7 +197,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/article/a09c4a7b.html">
+    <link itemprop="mainEntityOfPage" href="http://example.com/article/52337174.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/author.jpg">
@@ -211,7 +210,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Mybatis-Plus整合SpringBoot
+          九月秋招挨打记录
         </h1>
 
         <div class="post-meta">
@@ -222,23 +221,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-08-03 17:04:16" itemprop="dateCreated datePublished" datetime="2021-08-03T17:04:16+08:00">2021-08-03</time>
+              <time title="创建时间：2021-10-04 15:06:04 / 修改时间：15:14:46" itemprop="dateCreated datePublished" datetime="2021-10-04T15:06:04+08:00">2021-10-04</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-05 16:33:38" itemprop="dateModified" datetime="2021-08-05T16:33:38+08:00">2021-08-05</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                  <a href="/categories/%E9%9D%A2%E8%AF%95/" itemprop="url" rel="index"><span itemprop="name">面试</span></a>
                 </span>
             </span>
 
@@ -260,8 +253,8 @@
       </span>
       <span class="post-meta-item-text">评论数：</span>
     
-    <a title="valine" href="/article/a09c4a7b.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/article/a09c4a7b.html" itemprop="commentCount"></span>
+    <a title="valine" href="/article/52337174.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/article/52337174.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -271,18 +264,18 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>5k</span>
+              <span>1.9k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
+              <span>2 分钟</span>
             </span>
 
           
-            <span id="/article/a09c4a7b.html" class="post-meta-item leancloud_visitors" data-flag-title="Mybatis-Plus整合SpringBoot" title="阅读次数">
+            <span id="/article/52337174.html" class="post-meta-item leancloud_visitors" data-flag-title="九月秋招挨打记录" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -299,97 +292,196 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p> &emsp;&emsp;MyBatis-Plus（简称 MP）是一个Mybatis的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化开发、提高效率而生。刚好最近学到springboot，来实现一个简单的整合。</p>
-<span id="more"></span>
-
-<h1 id="快速实现"><a href="#快速实现" class="headerlink" title="快速实现"></a>快速实现</h1><ol>
-<li><p>官方介绍：<a target="_blank" rel="noopener" href="https://mp.baomidou.com/guide">https://mp.baomidou.com/guide</a></p>
-<p>gitee源码地址：<a target="_blank" rel="noopener" href="https://gitee.com/baomidou/mybatis-plus">https://gitee.com/baomidou/mybatis-plus</a></p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&emsp;&emsp;正值国庆，秋招也开始这么久了。从九月开学开始，正式开始秋招，多多少少也面了一些公司，大厂没啥信心，中小厂也被狠狠打击，特此记录一下面经。期待这个月的好消息。<span id="more"></span></p>
+<h2 id="线上"><a href="#线上" class="headerlink" title="线上"></a>线上</h2><h3 id="1-恒生"><a href="#1-恒生" class="headerlink" title="1 恒生"></a>1 恒生</h3><ol>
+<li><p>笔试</p>
+<ul>
+<li>SQL语句编写，索引，表连接</li>
+<li>打印杨辉三角</li>
+<li>打印素数</li>
+</ul>
 </li>
-<li><p>快速实现</p>
+<li><p>一面</p>
 <ul>
-<li><p>导入依赖</p>
-<ul>
-<li><pre><code class="xml">&lt;dependency&gt;
-    &lt;groupId&gt;com.baomidou&lt;/groupId&gt;
-    &lt;artifactId&gt;mybatis-plus-boot-starter&lt;/artifactId&gt;
-    &lt;version&gt;3.4.3.1&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre>
+<li>你有用过spring boot说说你的理解？配置文件？</li>
+<li>索引结构，B+树</li>
+<li>了解哪些设计模式</li>
+<li>项目有哪些亮点</li>
+<li>数据库隔离级别</li>
+<li>说说乐观锁，悲观锁</li>
+<li>最近失败的事情</li>
+<li>对你的上司有什么期望</li>
+<li>你的职业规划</li>
+<li>反问<ul>
+<li>面试面的怎么样</li>
+<li>培养方案</li>
+</ul>
 </li>
 </ul>
 </li>
-<li><p>编写配置类，默认已经配置好了不少</p>
+<li><p>二面（挂）</p>
 <ul>
-<li>注：<strong>使用mybatis-plus之后，原先配置的mybatis会失效，需要重新在mybatis-plus配置</strong></li>
+<li><p>项目遇到的困难</p>
+</li>
+<li><p>用到断点续传吗</p>
+</li>
+<li><p>数据库表怎么设计的</p>
+</li>
+<li><p>数据库怎么优化</p>
+</li>
+<li><p>索引有哪些</p>
+</li>
+<li><p>mybatis掌握的怎么样</p>
+</li>
+<li><p>怎么学习算法的</p>
+</li>
+<li><p>hr</p>
+<ul>
+<li>家庭情况</li>
+<li>个人规划</li>
 </ul>
 </li>
-<li><p>编写实体类</p>
+<li><p>反问</p>
 <ul>
-<li>```Java<br>//该注解可以表明该字段不在数据库，否则mybatis-plus使用报错<br>@TableField(exist = false)<br>private String userName;<br>@TableField(exist = false)<br>private String password;//@TableName(“user_tbl”),默认根据类名获取数据库中的表名，当名字不一致，可以使用该注解指定数据库表<br>//@TableName(“user_tbl”)注解加在类前面<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 编写mapper类</span><br><span class="line"></span><br><span class="line">  - ```java</span><br><span class="line">    public interface UserMapper extends BaseMapper&lt;User&gt; &#123;</span><br><span class="line">    </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    //BaseMapper里面包括了基本的CRUD方法，我们不用额外再写</span><br></pre></td></tr></table></figure></li>
+<li><p>面试的怎么样，让我自己评价。。</p>
+</li>
+<li><p>期望薪资 </p>
+</li>
 </ul>
-</li>
-<li><p>测试输出</p>
-<pre><code>@Autowired
-private UserMapper userMapper;
-@Test
-public void testSelect() &#123;
-    System.out.println((&quot;----- selectAll method test ------&quot;));
-    List&lt;User&gt; userList = userMapper.selectList(null);
-    Assert.assertEquals(5, userList.size());
-    userList.forEach(System.out::println);
-&#125;
-</code></pre>
-</li>
-<li><p>具体可参照官方文档</p>
 </li>
 </ul>
 </li>
 </ol>
-<h1 id="CRUD功能的实现"><a href="#CRUD功能的实现" class="headerlink" title="CRUD功能的实现"></a>CRUD功能的实现</h1><ul>
-<li><p>在上一部分的基础上进行</p>
-</li>
-<li><p>暂时只实现了删除</p>
-</li>
-<li><p>service层 Userservice 继承IService<User></p>
+<h3 id="2-4399"><a href="#2-4399" class="headerlink" title="2 4399"></a>2 4399</h3><ol>
+<li><p>笔试（挂）</p>
 <ul>
-<li>```java<br>public interface UserService extends IService<User> {<br>}<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 实现service接口</span><br><span class="line"></span><br><span class="line">  - ```Java</span><br><span class="line">    @Service</span><br><span class="line">    public class UserServiceImpl extends ServiceImpl&lt;UserMapper, User&gt; implements UserService &#123;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>判断是否是回文数，（栈解决）</p>
+</li>
+<li><p>完全背包问题，（dp)</p>
+</li>
+<li><p>进制转换（2的n次方式考虑位运算，其余则字符串进位一个个算）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toHex</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (num == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;0&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        StringBuffer sb = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">        <span class="comment">//这里转换成16进制，每四位相与转换即可，其他进制同理</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">7</span>; i &gt;= <span class="number">0</span>; i --) &#123;</span><br><span class="line">            <span class="comment">//位运算，与</span></span><br><span class="line">            <span class="keyword">int</span> val = (num &gt;&gt; (<span class="number">4</span> * i)) &amp; <span class="number">0xf</span>;</span><br><span class="line">            <span class="keyword">if</span> (sb.length() &gt; <span class="number">0</span> || val &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">char</span> digit = val &lt; <span class="number">10</span> ? (<span class="keyword">char</span>) (<span class="string">&#x27;0&#x27;</span> + val) : (<span class="keyword">char</span>) (<span class="string">&#x27;a&#x27;</span> + val - <span class="number">10</span>);</span><br><span class="line">                sb.append(digit);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sb.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
-<li><p>控制层实现数据的展示和数据删除</p>
+</ol>
+<h3 id="3-小红书"><a href="#3-小红书" class="headerlink" title="3 小红书"></a>3 小红书</h3><p>​    简历挂</p>
+<h3 id="4-海康"><a href="#4-海康" class="headerlink" title="4 海康"></a>4 海康</h3><ol>
+<li>笔试<ul>
+<li>SQL</li>
+<li>简单算法</li>
+<li>设计模式 ，适配器还是啥去了</li>
+</ul>
+</li>
+<li>一面（挂）<ul>
+<li>使用的Java版本</li>
+<li>函数式接口，lambda表达式</li>
+<li>default方法默认实现</li>
+<li>Stream流</li>
+<li>没听清不知道</li>
+<li>callable和runnable区别</li>
+<li>线程池的七个参数</li>
+<li>移除数组中大于十的元素，使用迭代器remove</li>
+<li>数据结构，栈的实现相关</li>
+<li>计网，tcp和utp区别</li>
+<li>使用tcp的协议有哪些</li>
+<li>http和https的区别</li>
+<li>https怎么实现加密的</li>
+</ul>
+</li>
+</ol>
+<h3 id="5-微众银行"><a href="#5-微众银行" class="headerlink" title="5 微众银行"></a>5 微众银行</h3><ol>
+<li>笔试<ul>
+<li>已知前缀和求原序列</li>
+<li>机器人消耗能量，（模拟）</li>
+<li>大哥数数（Date使用）</li>
+</ul>
+</li>
+</ol>
+<h3 id="6-58同城"><a href="#6-58同城" class="headerlink" title="6 58同城"></a>6 58同城</h3><ol>
+<li>笔试<ul>
+<li>零钱兑换问题（dp)</li>
+<li>把二维数组转换成一维数组，对去重结果进行排序</li>
+<li>二维数组，路径是否可达（dfs)</li>
+</ul>
+</li>
+</ol>
+<h2 id="线下"><a href="#线下" class="headerlink" title="线下"></a>线下</h2><h3 id="1-深圳昂楷科技"><a href="#1-深圳昂楷科技" class="headerlink" title="1 深圳昂楷科技"></a>1 深圳昂楷科技</h3><ol>
+<li>笔试<ul>
+<li>switch不能用哪些数据类型<ul>
+<li>switch可以作用于char byte short int及它们对应的包装类型，switch不可作用于long double float boolean及他们的包装类型。在 JDK1.5之后可以作用于枚举类型，在JDK1.7之后可作用于String类型。</li>
+</ul>
+</li>
+<li>8*2 最高效率实现</li>
+<li>数据脱敏<ul>
+<li>数据脱敏是指对某些敏感信息通过脱敏规则进行数据的变形，实现敏感隐私数据的可靠保护。在涉及客户安全数据或者一些商业性敏感数据的情况下，在不违反系统规则条件下，对真实数据进行改造并提供测试使用，如身份证号、手机号、卡号、客户号等个人信息都需要进行数据脱敏。</li>
+</ul>
+</li>
+<li>单例模式</li>
+<li>简单编程</li>
+</ul>
+</li>
+<li>一面（挂）<ul>
+<li>Java基本数据类型，及对应大小</li>
+<li>说说你了解的集合</li>
+<li>hashmap底层原理</li>
+<li>创建线程的方式</li>
+<li>说说什么是线程池</li>
+<li>spring的ioc和aop</li>
+<li>aop的作用</li>
+<li>springmvc的流程</li>
+<li>Redis</li>
+<li>数据库设计，表之间怎么联系</li>
+<li>mybatis你是怎么用的</li>
+<li>namespace作用，映射</li>
+<li>数据库的几种连接查询</li>
+</ul>
+</li>
+</ol>
+<h3 id="2-中车"><a href="#2-中车" class="headerlink" title="2 中车"></a>2 中车</h3><ol>
+<li>笔试<ul>
+<li>完形填空+阅读理解，麻了</li>
+<li>软件工程相关知识</li>
+</ul>
+</li>
+<li>一面（面试官非相关技术人员）<ul>
+<li>性格，沟通</li>
+<li>抗压</li>
+<li>随便问问就没了</li>
+</ul>
+</li>
+<li>二面<ul>
+<li>简单自我介绍</li>
+<li>招运维，先各地跑半年，再开发</li>
+<li>溜了</li>
+</ul>
+</li>
+</ol>
+<h3 id="3-兴盛优选"><a href="#3-兴盛优选" class="headerlink" title="3 兴盛优选"></a>3 兴盛优选</h3><ol>
+<li><p>笔试</p>
 <ul>
-<li><p>RedirectAttributes重定向之后可以携带参数</p>
+<li><p>io中断和dma方式区别</p>
 </li>
-<li><p>```Java</p>
-<pre><code>@GetMapping(&quot;/user/delete/&#123;id&#125;&quot;)
-public String deleteUser(@PathVariable(&quot;id&quot;) Integer id,
-                         @RequestParam(&quot;pn&quot;) Integer pn,
-                         RedirectAttributes rn)&#123;
-
-    userService.removeById(id);
-    rn.addAttribute(pn);
-    return &quot;redirect:/dynamic_table&quot;;
-&#125;
-
-@GetMapping(&quot;/dynamic_table&quot;)
-public String dynamic_table(@RequestParam(value = &quot;pn&quot;,defaultValue = &quot;1&quot;) Integer pn, Model model)&#123;
-    
-    List&lt;User&gt; list = userService.list();
-</code></pre>
-<p>//        model.addAttribute(“list”,list);</p>
-<pre><code>    //分页查询数据
-    Page&lt;User&gt; page = new Page&lt;&gt;(pn,2);
-
-    //分页查询结果
-    Page&lt;User&gt; userPage = userService.page(page, null);
-    model.addAttribute(&quot;page&quot;,userPage);
-    return &quot;data_tables/dynamic_table&quot;;
-&#125;
-</code></pre>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- html页面（利用thymeleaf模板引擎）</span><br><span class="line"></span><br><span class="line">  - 传入page，page.records表示总分页数据</span><br><span class="line"></span><br><span class="line">  - 遍历加状态写法：th:each=&quot;user,status:$&#123;page.records&#125;&quot;，user表示每个遍历出来的用户，status表示状态</span><br><span class="line"></span><br><span class="line">  - 页面转发并携带参数写法：th:href=&quot;@&#123;/dynamic_table(pn=$&#123;num&#125;)&#125;&quot; th:href=&quot;@&#123;/user/delete/&#123;id&#125;(id=$&#123;user.id&#125;,pn=$&#123;page.current&#125;)&#125;</span><br><span class="line"></span><br><span class="line">  - 条件判断：th:if  th:switch</span><br><span class="line"></span><br><span class="line">  - 生成数字序列：#numbers.sequence(1,page.pages)，从一到末页</span><br><span class="line"></span><br><span class="line">  - ```html</span><br><span class="line">    &lt;thead&gt;</span><br><span class="line">                    &lt;th&gt;#&lt;/th&gt;</span><br><span class="line">                    &lt;th&gt;编号&lt;/th&gt;</span><br><span class="line">                    &lt;th&gt;用户名&lt;/th&gt;</span><br><span class="line">                    &lt;th&gt;年龄&lt;/th&gt;</span><br><span class="line">                    &lt;th&gt;邮箱&lt;/th&gt;</span><br><span class="line">                    &lt;th&gt;操作&lt;/th&gt;</span><br><span class="line">    </span><br><span class="line">                &lt;/thead&gt;</span><br><span class="line">                &lt;tbody&gt;</span><br><span class="line">                    &lt;tr class=&quot;gradeX&quot; th:each=&quot;user,status:$&#123;page.records&#125;&quot;&gt;</span><br><span class="line">                        &lt;td th:text=&quot;$&#123;status.count&#125;&quot;&gt;Trident&lt;/td&gt;</span><br><span class="line">                        &lt;td th:text=&quot;$&#123;user.id&#125;&quot;&gt;Internet&lt;/td&gt;</span><br><span class="line">                        &lt;td th:text=&quot;$&#123;user.name&#125;&quot;&gt;Internet</span><br><span class="line">                            Explorer 4.0&lt;/td&gt;</span><br><span class="line">                        &lt;td th:text=&quot;$&#123;user.age&#125;&quot;&gt;Win 95+&lt;/td&gt;</span><br><span class="line">                        &lt;td th:text=&quot;$&#123;user.email&#125;&quot;&gt;Win 95+&lt;/td&gt;</span><br><span class="line">                        &lt;td&gt;</span><br><span class="line">                            &lt;a th:href=&quot;@&#123;/user/delete/&#123;id&#125;(id=$&#123;user.id&#125;,pn=$&#123;page.current&#125;)&#125;&quot; class=&quot;btn btn-danger btn-sm&quot; type=&quot;button&quot;&gt;删除&lt;/a&gt;</span><br><span class="line">                        &lt;/td&gt;</span><br><span class="line">                    &lt;/tr&gt;</span><br><span class="line">                &lt;/tbody&gt;</span><br><span class="line">            &lt;/table&gt;</span><br><span class="line">            &lt;!--分页条--&gt;</span><br><span class="line">                &lt;div class=&quot;row-fluid&quot;&gt;</span><br><span class="line">                    &lt;div class=&quot;span6&quot;&gt;</span><br><span class="line">                        &lt;div class=&quot;dataTables_info&quot; id=&quot;dynamic-table_info&quot;&gt;</span><br><span class="line">                            当前第[[$&#123;page.current&#125;]]页  总计 [[$&#123;page.pages&#125;]]页  共[[$&#123;page.total&#125;]]条记录</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                    &lt;div class=&quot;span6&quot;&gt;</span><br><span class="line">                        &lt;div class=&quot;dataTables_paginate paging_bootstrap pagination&quot;&gt;</span><br><span class="line">                            &lt;ul&gt;    </span><br><span class="line">                                &lt;!--判断是否有上一页--&gt;</span><br><span class="line">                                &lt;li th:switch=&quot;$&#123;page.hasPrevious()&#125;&quot;&gt;</span><br><span class="line">                                    &lt;a th:href=&quot;@&#123;/dynamic_table(pn=$&#123;page.getCurrent()-1&#125;)&#125;&quot; th:case=&quot;true&quot;&gt;← 前一页&lt;/a&gt;</span><br><span class="line">                                    &lt;a th:href=&quot;@&#123;/dynamic_table(pn=$&#123;page.getCurrent()&#125;)&#125;&quot; th:case=&quot;false&quot;&gt;← 前一页&lt;/a&gt;</span><br><span class="line">                                &lt;/li&gt;</span><br><span class="line">                                &lt;li th:class=&quot;$&#123;num == page.current?&#x27;active&#x27;:&#x27;&#x27;&#125;&quot; th:each=&quot;num:$&#123;#numbers.sequence(1,page.pages)&#125;&quot; &gt;</span><br><span class="line">                                    &lt;a th:href=&quot;@&#123;/dynamic_table(pn=$&#123;num&#125;)&#125;&quot;&gt;[[$&#123;num&#125;]]&lt;/a&gt;</span><br><span class="line">                                &lt;/li&gt;</span><br><span class="line">                                &lt;!--判断是否还有下一页--&gt;</span><br><span class="line">                                &lt;li th:switch=&quot;$&#123;page.hasNext()&#125;&quot;&gt;</span><br><span class="line">                                    &lt;a th:href=&quot;@&#123;/dynamic_table(pn=$&#123;page.getCurrent()+1&#125;)&#125;&quot; th:case=&quot;true&quot;&gt;下一页 → &lt;/a&gt;</span><br><span class="line">                                    &lt;a th:href=&quot;@&#123;/dynamic_table(pn=$&#123;page.getCurrent()&#125;)&#125;&quot; th:case=&quot;false&quot;&gt;下一页 → &lt;/a&gt;</span><br><span class="line">                                &lt;/li&gt;</span><br><span class="line">                            &lt;/ul&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                &lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>LRU缓存缺页问题(页面置换算法)</p>
+</li>
+<li><p>栈排序问题</p>
+</li>
+<li><p>出现一半以上的数字</p>
+</li>
+<li><p>设计选课系统</p>
+</li>
+<li><p>3000用户设计5w人QPS，问题转换为怎么应对大流量</p>
+<ul>
+<li><p><strong>QPS（Query Per Second）：每秒请求数，就是说服务器在一秒的时间内处理了多少个请求。</strong></p>
+</li>
+<li><p><strong>缓存</strong>：说白了，就是让数据尽早进入缓存，离程序近一点，不要大量频繁的访问DB。</p>
+<p><strong>降级</strong>：如果不是核心链路，那么就把这个服务降级掉。打个比喻，现在的APP都讲究千人千面，拿到数据后，做个性化排序展示，如果在大流量下，这个排序就可以降级掉！</p>
+<p><strong>限流</strong>：大家都知道，北京地铁早高峰，地铁站都会做一件事情，就是限流了！想法很直接，就是想在一定时间内把请求限制在一定范围内，保证系统不被冲垮，同时尽可能提升系统的吞吐量。</p>
+</li>
 </ul>
 </li>
 </ul>
+</li>
+</ol>
 
     </div>
 
@@ -438,7 +530,7 @@ public String dynamic_table(@RequestParam(value = &quot;pn&quot;,defaultValue = 
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://example.com/article/a09c4a7b.html" title="Mybatis-Plus整合SpringBoot">http://example.com/article/a09c4a7b.html</a>
+    <a href="http://example.com/article/52337174.html" title="九月秋招挨打记录">http://example.com/article/52337174.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -449,9 +541,8 @@ public String dynamic_table(@RequestParam(value = &quot;pn&quot;,defaultValue = 
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/java/" rel="tag"># java</a>
-              <a href="/tags/mybatis/" rel="tag"># mybatis</a>
-              <a href="/tags/springboot/" rel="tag"># springboot</a>
+              <a href="/tags/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/" rel="tag"># 经验分享</a>
+              <a href="/tags/%E7%A7%8B%E6%8B%9B/" rel="tag"># 秋招</a>
           </div>
 
         
@@ -460,13 +551,10 @@ public String dynamic_table(@RequestParam(value = &quot;pn&quot;,defaultValue = 
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/article/4b8dd3b5.html" rel="prev" title="利用Hexo搭建个人博客">
-      <i class="fa fa-chevron-left"></i> 利用Hexo搭建个人博客
+    <a href="/article/37b7424c.html" rel="prev" title="数据结构之线性结构">
+      <i class="fa fa-chevron-left"></i> 数据结构之线性结构
     </a></div>
-      <div class="post-nav-item">
-    <a href="/article/7cc9a691.html" rel="next" title="MyBatis-Plus代码生成">
-      MyBatis-Plus代码生成 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -526,7 +614,7 @@ public String dynamic_table(@RequestParam(value = &quot;pn&quot;,defaultValue = 
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E5%AE%9E%E7%8E%B0"><span class="nav-number">2.</span> <span class="nav-text">快速实现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CRUD%E5%8A%9F%E8%83%BD%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">CRUD功能的实现</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E4%B8%8A"><span class="nav-number">2.</span> <span class="nav-text">线上</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%81%92%E7%94%9F"><span class="nav-number">2.1.</span> <span class="nav-text">1 恒生</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4399"><span class="nav-number">2.2.</span> <span class="nav-text">2 4399</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%B0%8F%E7%BA%A2%E4%B9%A6"><span class="nav-number">2.3.</span> <span class="nav-text">3 小红书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E6%B5%B7%E5%BA%B7"><span class="nav-number">2.4.</span> <span class="nav-text">4 海康</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E5%BE%AE%E4%BC%97%E9%93%B6%E8%A1%8C"><span class="nav-number">2.5.</span> <span class="nav-text">5 微众银行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-58%E5%90%8C%E5%9F%8E"><span class="nav-number">2.6.</span> <span class="nav-text">6 58同城</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E4%B8%8B"><span class="nav-number">3.</span> <span class="nav-text">线下</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%B7%B1%E5%9C%B3%E6%98%82%E6%A5%B7%E7%A7%91%E6%8A%80"><span class="nav-number">3.1.</span> <span class="nav-text">1 深圳昂楷科技</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%B8%AD%E8%BD%A6"><span class="nav-number">3.2.</span> <span class="nav-text">2 中车</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%85%B4%E7%9B%9B%E4%BC%98%E9%80%89"><span class="nav-number">3.3.</span> <span class="nav-text">3 兴盛优选</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
