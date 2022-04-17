@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title></title>
-    <url>/article/0.html</url>
-    <content><![CDATA[<h2 id="1-配置文件"><a href="#1-配置文件" class="headerlink" title="1.配置文件"></a>1.配置文件</h2><h3 id="1-1-properties"><a href="#1-1-properties" class="headerlink" title="1.1 properties"></a>1.1 properties</h3><p>当配置文件中的中文乱码时，可以在setting里面进行修改,IDEA中设置 <code>File Encodings</code></p>
+    <title>springboot学习笔记2</title>
+    <url>/article/a25851fc.html</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&emsp;&emsp;之前学的springboot笔记2，放上来方便查看</p>
+<span id="more"></span>
+<h2 id="1-配置文件"><a href="#1-配置文件" class="headerlink" title="1.配置文件"></a>1.配置文件</h2><h3 id="1-1-properties"><a href="#1-1-properties" class="headerlink" title="1.1 properties"></a>1.1 properties</h3><p>当配置文件中的中文乱码时，可以在setting里面进行修改,IDEA中设置 <code>File Encodings</code></p>
 <p>修改之后还是不失效，可以把配置文件删了，再重新创一个</p>
 <h3 id="1-2-yaml"><a href="#1-2-yaml" class="headerlink" title="1.2 yaml"></a>1.2 yaml</h3><p>application.yml也可以用来当作配置文件使用</p>
 <p><strong>配置文件在同一位置同时具有<code>.properties</code>和<code>.yml</code>格式，<code>.properties</code>则优先。</strong></p>
@@ -1230,6 +1232,13 @@ spring.profiles.group.production[1]=prodmq
 </li>
 </ol>
 <h3 id="6-4-SpringBoot原理"><a href="#6-4-SpringBoot原理" class="headerlink" title="6.4 SpringBoot原理"></a>6.4 SpringBoot原理</h3>]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>springboot</tag>
+        <tag>学习笔记</tag>
+      </tags>
   </entry>
   <entry>
     <title>SpringBoot学习笔记1</title>
