@@ -2778,9 +2778,9 @@ classes = &#123;AutoConfigurationExcludeFilter.class&#125;
         <category>技术</category>
       </categories>
       <tags>
-        <tag>java</tag>
-        <tag>mybatis</tag>
         <tag>springboot</tag>
+        <tag>mybatis</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -2882,9 +2882,9 @@ public String dynamic_table(@RequestParam(value = &quot;pn&quot;,defaultValue = 
         <category>技术</category>
       </categories>
       <tags>
-        <tag>java</tag>
-        <tag>mybatis</tag>
         <tag>springboot</tag>
+        <tag>mybatis</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
